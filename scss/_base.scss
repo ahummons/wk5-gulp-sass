@@ -1,0 +1,82 @@
+// base.scss */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+body {
+    background-color: $basepurple;
+    font-family: "Open Sans", sans-serif; 
+    padding: 1em;
+    font-size: 26px;
+    margin: 0;
+    color: black;
+  }
+  p {
+    font-size: 26px;
+    color:$white;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    max-width: 2400px;
+    padding: 1rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+  }
+  .responsive-image {
+    max-width: 100%;
+  }
+  .cell {
+    display: block;
+    height: auto;
+    max-width: 320px;
+    margin: 1em;
+    padding: 0.5em;
+    background-color: $darkpurple2;
+    flex: auto;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .cell {
+      width: calc(50% - 2rem);
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    .cell {
+      width: calc(100% / 3);
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-content: flex-start;
+    }
+  }
